@@ -1,23 +1,23 @@
 var container = document.getElementById("container")
-var BtnGohan = document.getElementById("BtnGohan")
-var FiltrarSayayines = document.getElementById("FiltrarSayayines")
-var filtrarAndroides = document.getElementById("filtrarAndroides")
+let Gohan = document.getElementById("BtnGohan")
+let Sayayines = document.getElementById("FiltrarSayayines")
+let Androides = document.getElementById("filtrarAndroides")
 
-var Mayor = document.getElementById("Mayor")
-var Menor = document.getElementById("Menor")
-var Menor = document.getElementById("Menor")
-var Femenino = document.getElementById("Femenino")
+let Mayor = document.getElementById("Mayor")
+let Menor = document.getElementById("Menor")
+let fem = document.getElementById("Femenino")
 
-var inputbuscar = document.getElementById("inputbuscar")
+let inputbuscar = document.getElementById("inputbuscar")
+let Mostrartodo = document.getElementById("Mostrartodo")
 
 
 Menor.addEventListener("click",acMenor)
 Mayor.addEventListener("click",acMayor)
-BtnGohan.addEventListener("click",actionBtnGohan)
-FiltrarSayayines.addEventListener("click",actionFiltrarSayayines)
-filtrarAndroides.addEventListener("click",actionfiltrarAndroides)
-Femenino.addEventListener("click",actionFeme)
-
+Gohan.addEventListener("click",buscargohan)
+Sayayines.addEventListener("click",buscarSaya)
+Androides.addEventListener("click",BuscarAndroides)
+fem.addEventListener("click",buscarfeme)
+Mostrartodo.addEventListener("click",mostrarprinc)
 
 
 
@@ -38,38 +38,41 @@ function acMayor(){
 
 
 
-function actionBtnGohan() {
+function buscargohan() {
 
-    let arrayFiltrarGohan = personajes.filter(
-        item => item.name === "Gohan"
-    )
+
+    let arrayFiltrarGohan = personajes.filter((item) => 
+        item.id == "gohan" );
     renderizarPersonaje(arrayFiltrarGohan)
 }
 
 
 
-function actionFiltrarSayayines() {
-    let arrayFiltrarSayayines = personajes.filter(
-        item => item.race === "Saiyan"
-    )
-    renderizarPersonaje(arrayFiltrarSayayines)
+function buscarSaya() {
+    
+    let arrayFiltrarSaya = personajes.filter((item) => 
+        item.race == "Saiyan" );
+    renderizarPersonaje(arrayFiltrarSaya)
 }
 
-function actionfiltrarAndroides() {
-    let arrayfiltrarAndroides = personajes.filter(
-        item => item.race === "Androide"
-    )
-    renderizarPersonaje(arrayfiltrarAndroides)
+function BuscarAndroides() {
+    let arrayFiltrarAndroid = personajes.filter((item) => 
+        item.race == "Android" );
+    renderizarPersonaje(arrayFiltrarAndroid)
 }
 
 
 
 
-function actionFeme() {
-    let arrayfiltrarFeme = personajes.filter(
-        item => item.gender === "Male"
-    )
-    renderizarPersonaje(arrayfiltrarFeme)
+function buscarfeme() {
+    let arrayFiltrarfeme = personajes.filter((item) => 
+        item.gender == "Male" );
+    renderizarPersonaje(arrayFiltrarfeme)
+}
+
+
+function mostrarprinc(){
+    renderizarPersonaje(personajes);
 }
 
 
@@ -112,15 +115,13 @@ function mostrarPersonaje(personaje) {
         </div>`
 }
 
-function renderizarPersonaje() {
+function renderizarPersonaje(array) {
 
-
-    personajes.forEach(item =>
-        container.innerHTML = container.innerHTML + mostrarPersonaje(item)
-    )
+container.innerHTML = "";
+array.forEach((item) => {
+        container.innerHTML +=  mostrarPersonaje(item)
+})
 
 }
 
 renderizarPersonaje()
-
-
