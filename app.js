@@ -1,14 +1,14 @@
 var container = document.getElementById("container")
-let Gohan = document.getElementById("BtnGohan")
-let Sayayines = document.getElementById("FiltrarSayayines")
-let Androides = document.getElementById("filtrarAndroides")
+var Gohan = document.getElementById("BtnGohan")
+var Sayayines = document.getElementById("FiltrarSayayines")
+var Androides = document.getElementById("filtrarAndroides")
 
-let Mayor = document.getElementById("Mayor")
-let Menor = document.getElementById("Menor")
-let fem = document.getElementById("Femenino")
+var Mayor = document.getElementById("Mayor")
+var Menor = document.getElementById("Menor")
+var fem = document.getElementById("Femenino")
 
-let inputbuscar = document.getElementById("inputbuscar")
-let Mostrartodo = document.getElementById("Mostrartodo")
+var inputbuscar = document.getElementById("inputbuscar")
+var Mostrartodo = document.getElementById("Mostrartodo")
 
 
 Menor.addEventListener("click",acMenor)
